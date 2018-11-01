@@ -1,0 +1,36 @@
+#morpheus{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    left: 200px;
+    top: 1000px;
+}
+#stique{
+    height: 100px;
+    width: 150px;
+    background: rgb(10, 133, 6);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+#point{
+    height: 50px;
+    width: 50px;
+    background: rgb(250, 40, 3);
+    position: absolute;
+    left: 600px;
+    top: 300px;
+}
+#morpheus img{
+    height: inherit;
+    width: inherit;
+}
+#point img{
+    height: 50px;
+    width: 50px;
+}
+
+#stique img{ 
+    height: inherit;
+    width: inherit;
+}
