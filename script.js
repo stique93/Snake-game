@@ -7,6 +7,18 @@ var touch = 0;
 var directionOfMoving = "right";
 var timmer = 50;
 var objectSizeWidth, objectSizeHeight = 0;
+var snake = {
+    color: "red",
+    blocks: [{
+        type: "big",
+        color: "green"
+    },{
+        type: "small",
+        color: "blue"
+    }]
+};
+
+console.log(snake.blocks);
 
 listenKeyDown();
 
@@ -97,7 +109,7 @@ function checkTouch() {
         objectSizeHeight = document.getElementById('stique').getBoundingClientRect().height + 10;
         document.getElementById('stique').style.width = objectSizeWidth + "px";
         document.getElementById('stique').style.height = objectSizeHeight + "px";
-        document.location.href = "game2.html";
+        //document.location.href = "game2.html";
 
     }
 
