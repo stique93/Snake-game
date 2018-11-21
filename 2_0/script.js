@@ -81,12 +81,15 @@ function checkMoving(){
             }
             else reMove(Math.round(headOfSnake.x / blockSize) * blockSize,headOfSnake.y + blockSize);
         }
-        if (apple[0] == snake.blocks[snake.blocks.length-1].x && apple[1] == snake.blocks[snake.blocks.length-1].y)
+        if (isCollision())
         {
             newApple();
             snake.blocks.unshift(tailOfSnake);
         }
     }
+}
+function isCollision(){
+    return apple[0] == snake.blocks[snake.blocks.length-1].x && apple[1] == snake.blocks[snake.blocks.length-1].y
 }
 setInterval(function () {
     checkMoving();
