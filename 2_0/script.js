@@ -13,10 +13,10 @@ var snake = {
     color: "red",
     blocks: [{ x: 0, y: 0 }, { x: 20, y: 0 }, { x: 40, y: 0 }]
 };
-var gP = document.getElementById('gP'); //Достаем canvas
-var gC = gP.getContext('2d'); //Устанавливаем двумерный контекст 
-gP.width = innerWidth; //Сохранем четкость изображения, выставив полную ширину экрана
-gP.height = innerHeight; //То же самое, но только с высотой
+var canvasGraphic = document.getElementById('canvasGraphic'); //Достаем canvas
+var getContext = canvasGraphicgetContext('2d'); //Устанавливаем двумерный контекст 
+canvasGraphicwidth = innerWidth; //Сохранем четкость изображения, выставив полную ширину экрана
+canvasGraphicheight = innerHeight; //То же самое, но только с высотой
 
 createNewApple();
 listenKeyDown();
@@ -68,36 +68,44 @@ function moveTheSnake(headX, headY) {
         if (headX <= 0) {
             reMove(800, Math.round(headY / blockSize) * blockSize);
         }
-        else reMove(headX - blockSize, Math.round(headY / blockSize) * blockSize);
+        else {
+            reMove(headX - blockSize, Math.round(headY / blockSize) * blockSize);
+        }
     }
     if (directionOfMoving === "right") {
         if (headX >= 800) {
             reMove(0, Math.round(headY / blockSize) * blockSize);
         }
-        else reMove(headX + blockSize, Math.round(headY / blockSize) * blockSize);
+        else {
+            reMove(headX + blockSize, Math.round(headY / blockSize) * blockSize);
+        }
     }
     if (directionOfMoving === "up") {
         if (headY <= 0) {
             reMove(Math.round(headX / blockSize) * blockSize, 600);
         }
-        else reMove(Math.round(headX / blockSize) * blockSize, headY - blockSize);
+        else {
+            reMove(Math.round(headX / blockSize) * blockSize, headY - blockSize);
+        }
     }
     if (directionOfMoving === "down") {
         if (headY >= 600) {
             reMove(Math.round(headX / blockSize) * blockSize, 0);
         }
-        else reMove(Math.round(headX / blockSize) * blockSize, headY + blockSize);
+        else {
+            reMove(Math.round(headX / blockSize) * blockSize, headY + blockSize);
+        }
     }
 
 };
 
 setInterval(function () {
     checkMoving();
-    gC.clearRect(0, 0, gP.width, gP.height);   //очищаем канвас
-    gC.fillStyle = "red";                   //устанавливаем цвет для точки
-    gC.fillRect(...apple, blockSize, blockSize);//отрисовываем точку размера blockSize
-    gC.fillStyle = "black";                 //устанавливаем цвет для змеи
+    getContext.clearRect(0, 0, canvasGraphic.width, canvasGraphic.height);   //очищаем канвас
+    getContext.fillStyle = "red";                   //устанавливаем цвет для точки
+    getContext.fillRect(...apple, blockSize, blockSize);//отрисовываем точку размера blockSize
+    getContext.fillStyle = "black";                 //устанавливаем цвет для змеи
     snake.blocks.forEach(function (index) {
-        gC.fillRect(index.x, index.y, blockSize, blockSize); //отрисовываем поблочно змею
+        getContext.fillRect(index.x, index.y, blockSize, blockSize); //отрисовываем поблочно змею
     });
 }, timmer);
