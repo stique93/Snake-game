@@ -14,9 +14,9 @@ var snake = {
     blocks: [{ x: 0, y: 0 }, { x: 20, y: 0 }, { x: 40, y: 0 }]
 };
 var canvasGraphic = document.getElementById('canvasGraphic'); //Достаем canvas
-var getContext = canvasGraphicgetContext('2d'); //Устанавливаем двумерный контекст 
-canvasGraphicwidth = innerWidth; //Сохранем четкость изображения, выставив полную ширину экрана
-canvasGraphicheight = innerHeight; //То же самое, но только с высотой
+var getContext = canvasGraphic.getContext('2d'); //Устанавливаем двумерный контекст 
+canvasGraphic.width = innerWidth; //Сохранем четкость изображения, выставив полную ширину экрана
+canvasGraphic.height = innerHeight; //То же самое, но только с высотой
 
 createNewApple();
 listenKeyDown();
